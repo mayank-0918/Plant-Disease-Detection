@@ -1,12 +1,13 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
 from tensorflow.keras.models import load_model
 from PIL import Image
 import numpy as np
 import json
+import os
 import traceback
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder="client/dist", static_url_path="")
 CORS(app)
 
 # Load the trained model
@@ -57,16 +58,14 @@ def predict():
         if file.filename == '':
             return jsonify({"error": "No file selected"}), 400
 
-        # Image processing
         img = Image.open(file)
         img = img.convert('RGB')
         img = img.resize((128, 128))
-        img_array = np.array(img) 
+        img_array = np.array(img)
         img_array = img_array.reshape(1, 128, 128, 3)
 
         print(f"📷 Image processed. Shape: {img_array.shape}")
 
-        # Prediction
         prediction = model.predict(img_array)[0]
         print(f"📈 Prediction vector: {prediction}")
 
@@ -79,14 +78,13 @@ def predict():
         class_name = class_names[class_index]
         print(f"✅ Predicted: {class_name} (Index: {class_index}, Confidence: {confidence:.4f})")
 
-        # Lookup additional info
         disease_info = disease_data.get(class_name, {})
 
         return jsonify({
             "predicted_class": class_index,
             "disease_name": class_name,
             "confidence": f"{confidence:.4f}",
-            "prediction_vector": prediction.tolist(),  # Optional: to analyze model certainty
+            "prediction_vector": prediction.tolist(),
             "cure": disease_info.get("cure", "Not available"),
             "precaution": disease_info.get("precaution", "Not available")
         })
@@ -95,5 +93,15 @@ def predict():
         print("❌ Error during prediction:\n", traceback.format_exc())
         return jsonify({"error": "Prediction failed. Check server logs."}), 500
 
+# Serve frontend build
+@app.route("/")
+def serve_index():
+    return send_from_directory(app.static_folder, "index.html")
+
+@app.route("/<path:path>")
+def serve_static(path):
+    return send_from_directory(app.static_folder, path)
+
 if __name__ == '__main__':
-    app.run(debug=True)
+    # Required by Render
+    app.run(host="0.0.0.0", port=5000)

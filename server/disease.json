@@ -1,0 +1,154 @@
+{
+    "Apple Scab": {
+        "cure": "Apply fungicides like Mancozeb, Myclobutanil, or Captan. Remove and destroy infected leaves.",
+        "precaution": "Prune infected branches, ensure good air circulation, and use resistant apple varieties."
+    },
+    "Apple Black Rot": {
+        "cure": "Remove infected fruit and branches. Apply copper-based fungicides or Thiophanate-methyl.",
+        "precaution": "Avoid injuries to the tree, prune during dry conditions, and clean up fallen debris."
+    },
+    "Apple Cedar Rust": {
+        "cure": "Apply fungicides like Propiconazole and Myclobutanil. Remove nearby junipers (alternative hosts).",
+        "precaution": "Plant resistant apple varieties, maintain tree health with proper fertilization."
+    },
+    "Apple Healthy": {
+        "cure": "No treatment needed.",
+        "precaution": "Regular pruning, proper irrigation, and balanced fertilization."
+    },
+    "Blueberry Healthy": {
+        "cure": "No treatment needed.",
+        "precaution": "Maintain soil acidity (pH 4.5-5.5), proper fertilization, and good irrigation."
+    },
+    "Cherry Powdery Mildew": {
+        "cure": "Apply sulfur-based fungicides, potassium bicarbonate, or neem oil.",
+        "precaution": "Improve air circulation, avoid excessive nitrogen fertilizers, and prune regularly."
+    },
+    "Cherry Healthy": {
+        "cure": "No treatment needed.",
+        "precaution": "Proper watering, soil management, and disease-free planting materials."
+    },
+    "Corn Cercospora Leaf Spot & Gray Leaf Spot": {
+        "cure": "Apply fungicides like Strobilurin or Azoxystrobin. Use crop rotation.",
+        "precaution": "Avoid excessive nitrogen application and ensure good field drainage."
+    },
+    "Corn Common Rust": {
+        "cure": "Apply fungicides such as Triazole-based products (Propiconazole).",
+        "precaution": "Use resistant hybrids, avoid high humidity, and space plants properly."
+    },
+    "Corn Northern Leaf Blight": {
+        "cure": "Use fungicides like Pyraclostrobin and Chlorothalonil.",
+        "precaution": "Plant resistant varieties, ensure good air circulation, and remove crop residues."
+    },
+    "Corn Healthy": {
+        "cure": "No treatment needed.",
+        "precaution": "Proper fertilization and irrigation practices."
+    },
+    "Grape Black Rot": {
+        "cure": "Apply fungicides like Captan or Thiophanate-methyl. Prune infected parts.",
+        "precaution": "Remove mummified fruit, improve air circulation, and avoid overhead watering."
+    },
+    "Grape Esca (Black Measles)": {
+        "cure": "No effective chemical treatment. Remove and destroy infected vines.",
+        "precaution": "Improve drainage, avoid excessive pruning, and maintain soil health."
+    },
+    "Grape Leaf Blight (Isariopsis Leaf Spot)": {
+        "cure": "Apply copper-based fungicides.",
+        "precaution": "Avoid excessive nitrogen fertilizers and overhead irrigation."
+    },
+    "Grape Healthy": {
+        "cure": "No treatment needed.",
+        "precaution": "Regular pruning, balanced nutrition, and proper irrigation."
+    },
+    "Orange Haunglongbing (Citrus Greening)": {
+        "cure": "No cure. Infected trees should be removed immediately.",
+        "precaution": "Control psyllid population using insecticides, plant disease-resistant varieties."
+    },
+    "Peach Bacterial Spot": {
+        "cure": "Apply copper-based bactericides and Streptomycin.",
+        "precaution": "Avoid excessive nitrogen, plant resistant varieties, prune in dry weather."
+    },
+    "Peach Healthy": {
+        "cure": "No treatment needed.",
+        "precaution": "Maintain proper soil nutrients and avoid overhead irrigation."
+    },
+    "Pepper Bell Bacterial Spot": {
+        "cure": "Apply copper-based fungicides and antibiotics like Streptomycin.",
+        "precaution": "Use disease-free seeds, avoid overhead watering, and rotate crops."
+    },
+    "Pepper Bell Healthy": {
+        "cure": "No treatment needed.",
+        "precaution": "Proper soil management and irrigation practices."
+    },
+    "Potato Early Blight": {
+        "cure": "Use fungicides containing Chlorothalonil or Mancozeb.",
+        "precaution": "Avoid overwatering, ensure crop rotation, and remove infected leaves."
+    },
+    "Potato Late Blight": {
+        "cure": "Apply fungicides like Metalaxyl or Mancozeb.",
+        "precaution": "Avoid overhead irrigation, use resistant varieties, and improve field drainage."
+    },
+    "Potato Healthy": {
+        "cure": "No treatment needed.",
+        "precaution": "Maintain proper soil health and irrigation."
+    },
+    "Raspberry Healthy": {
+        "cure": "No treatment needed.",
+        "precaution": "Proper mulching and irrigation practices."
+    },
+    "Soybean Healthy": {
+        "cure": "No treatment needed.",
+        "precaution": "Proper crop rotation and soil nutrition."
+    },
+    "Squash Powdery Mildew": {
+        "cure": "Apply sulfur-based or potassium bicarbonate fungicides.",
+        "precaution": "Ensure good air circulation, avoid over-fertilization."
+    },
+    "Strawberry Leaf Scorch": {
+        "cure": "Use fungicides like Captan or Myclobutanil.",
+        "precaution": "Avoid high nitrogen levels, prune infected leaves."
+    },
+    "Strawberry Healthy": {
+        "cure": "No treatment needed.",
+        "precaution": "Maintain proper soil moisture and ventilation."
+    },
+    "Tomato Bacterial Spot": {
+        "cure": "Apply copper fungicides and antibiotics like Streptomycin.",
+        "precaution": "Use disease-free seeds and avoid overhead watering."
+    },
+    "Tomato Early Blight": {
+        "cure": "Use fungicides containing Chlorothalonil or Copper compounds.",
+        "precaution": "Rotate crops and remove infected plant debris."
+    },
+    "Tomato Late Blight": {
+        "cure": "Apply fungicides like Mancozeb or Chlorothalonil.",
+        "precaution": "Improve ventilation and avoid overhead irrigation."
+    },
+    "Tomato Leaf Mold": {
+        "cure": "Use fungicides like Chlorothalonil or Copper hydroxide.",
+        "precaution": "Reduce humidity and space plants properly."
+    },
+    "Tomato Septoria Leaf Spot": {
+        "cure": "Apply fungicides containing Copper or Chlorothalonil.",
+        "precaution": "Avoid wet foliage, remove infected leaves."
+    },
+    "Tomato Spider Mites (Two-Spotted Spider Mite)": {
+        "cure": "Use miticides like Abamectin or Neem oil.",
+        "precaution": "Increase humidity and remove affected leaves."
+    },
+    "Tomato Target Spot": {
+        "cure": "Use fungicides such as Mancozeb.",
+        "precaution": "Avoid excessive nitrogen and ensure proper drainage."
+    },
+    "Tomato Yellow Leaf Curl Virus": {
+        "cure": "No cure. Remove infected plants.",
+        "precaution": "Control whiteflies and use resistant varieties."
+    },
+    "Tomato Mosaic Virus": {
+        "cure": "No cure. Destroy infected plants.",
+        "precaution": "Sanitize tools and avoid tobacco contamination."
+    },
+    "Tomato Healthy": {
+        "cure": "No treatment needed.",
+        "precaution": "Maintain good soil health and irrigation."
+    }
+}

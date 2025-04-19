@@ -4,8 +4,18 @@ services:
     env: python
     buildCommand: |
       pip install -r requirements.txt
-      cd client && npm install && npm run build
+      cd client
+      npm install
+      npm run build
+      cd ..
     startCommand: gunicorn app:app
     envVars:
       - key: PORT
         value: 5000
+    buildFilter:
+      paths:
+        - client/**
+        - app.py
+        - model.h5
+        - disease.json
+        - requirements.txt

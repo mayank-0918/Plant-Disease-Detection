@@ -7,11 +7,11 @@ import json
 import os
 import traceback
 
-# Initialize Flask app
+# === Initialize Flask app ===
 app = Flask(__name__, static_folder="client/dist", static_url_path="")
 CORS(app)
 
-# Load model
+# === Load model ===
 try:
     model = load_model("model.h5")
     print("✅ Model loaded successfully.")
@@ -19,7 +19,7 @@ except Exception as e:
     print("❌ Failed to load model:", e)
     model = None
 
-# Load disease info
+# === Load disease data ===
 try:
     with open("disease.json", "r") as f:
         disease_data = json.load(f)
@@ -28,7 +28,7 @@ except FileNotFoundError:
     disease_data = {}
     print("⚠️ disease.json not found. Using empty dictionary.")
 
-# Define class names (make sure these are in same order as your model output)
+# === Class names (must match model output) ===
 class_names = [
     "Apple Scab", "Apple Black Rot", "Apple Cedar Rust", "Apple Healthy",
     "Blueberry Healthy", "Cherry Powdery Mildew", "Cherry Healthy",
@@ -46,6 +46,7 @@ class_names = [
     "Tomato Yellow Leaf Curl Virus", "Tomato Mosaic Virus", "Tomato Healthy"
 ]
 
+# === Prediction route ===
 @app.route("/predict", methods=["POST"])
 def predict():
     if model is None:
@@ -59,12 +60,12 @@ def predict():
         if file.filename == "":
             return jsonify({"error": "Empty filename"}), 400
 
-        # Preprocess the image
+        # Preprocess image
         img = Image.open(file).convert("RGB")
         img = img.resize((128, 128))
         img_array = np.array(img).reshape(1, 128, 128, 3)
 
-        # Make prediction
+        # Predict
         prediction = model.predict(img_array)[0]
         class_index = int(np.argmax(prediction))
         confidence = float(np.max(prediction))
@@ -90,19 +91,15 @@ def predict():
         print("❌ Prediction error:\n", traceback.format_exc())
         return jsonify({"error": "Prediction failed"}), 500
 
-# Serve React frontend
-@app.route("/")
-def serve_index():
-    return send_from_directory(app.static_folder, "index.html")
-
+# === Serve React frontend (single-page app) ===
+@app.route("/", defaults={"path": ""})
 @app.route("/<path:path>")
 def serve_react_app(path):
-    file_path = os.path.join(app.static_folder, path)
-    if os.path.exists(file_path):
+    if path != "" and os.path.exists(os.path.join(app.static_folder, path)):
         return send_from_directory(app.static_folder, path)
     else:
-        # Fallback to index.html for React Router
         return send_from_directory(app.static_folder, "index.html")
 
+# === Run the app ===
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)

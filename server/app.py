@@ -28,7 +28,7 @@ except FileNotFoundError:
     disease_data = {}
     print("⚠️ disease.json not found. Using empty dictionary.")
 
-# === Class names (must match model output) ===
+# === Class names ===
 class_names = [
     "Apple Scab", "Apple Black Rot", "Apple Cedar Rust", "Apple Healthy",
     "Blueberry Healthy", "Cherry Powdery Mildew", "Cherry Healthy",
@@ -91,11 +91,12 @@ def predict():
         print("❌ Prediction error:\n", traceback.format_exc())
         return jsonify({"error": "Prediction failed"}), 500
 
-# === Serve React frontend (single-page app) ===
+# === Serve React frontend ===
 @app.route("/", defaults={"path": ""})
 @app.route("/<path:path>")
 def serve_react_app(path):
-    if path != "" and os.path.exists(os.path.join(app.static_folder, path)):
+    file_path = os.path.join(app.static_folder, path)
+    if path != "" and os.path.exists(file_path):
         return send_from_directory(app.static_folder, path)
     else:
         return send_from_directory(app.static_folder, "index.html")

@@ -65,6 +65,7 @@ def predict():
         img = img.resize((128, 128))
         img_array = np.array(img).reshape(1, 128, 128, 3)
 
+        # Predict using the loaded model
         prediction = model.predict(img_array)[0]
         class_index = int(np.argmax(prediction))
         confidence = float(np.max(prediction))
@@ -77,6 +78,7 @@ def predict():
 
         print(f"✅ Prediction: {class_name} | Confidence: {confidence:.4f}")
 
+        # Return JSON response with prediction details
         return jsonify({
             "predicted_class": class_index,
             "disease_name": class_name,
@@ -102,4 +104,5 @@ def serve_react_app(path):
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
-    app.run(host="0.0.0.0", port=port)
+    app.run(host="0.0.0.0", port=port, debug=True)
+

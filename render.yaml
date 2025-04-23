@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: plant-desease-backend
+    name: plant-disease-backend
     env: python
     buildCommand: |
       pip install -r requirements.txt
@@ -10,4 +10,6 @@ services:
     startCommand: gunicorn app:app
     envVars:
       - key: PORT
-        value: 5000
+        value: 5000  # Updated the port to match your Flask app (if necessary)
+      - key: CUDA_VISIBLE_DEVICES
+        value: "-1"  # Add environment variable to disable GPU usage for TensorFlow

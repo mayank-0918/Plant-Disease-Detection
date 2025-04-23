@@ -7,11 +7,9 @@ from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
 from tensorflow.keras.models import load_model
 from PIL import Image
-
 import json
 import traceback
 
-# === Initialize Flask app ===
 app = Flask(__name__, static_folder="client/dist", static_url_path="")
 CORS(app)
 
@@ -50,7 +48,6 @@ class_names = [
     "Tomato Yellow Leaf Curl Virus", "Tomato Mosaic Virus", "Tomato Healthy"
 ]
 
-# === Prediction route ===
 @app.route("/predict", methods=["POST"])
 def predict():
     if model is None:
@@ -64,12 +61,10 @@ def predict():
         if file.filename == "":
             return jsonify({"error": "Empty filename"}), 400
 
-        # Preprocess image
         img = Image.open(file).convert("RGB")
         img = img.resize((128, 128))
         img_array = np.array(img).reshape(1, 128, 128, 3)
 
-        # Predict
         prediction = model.predict(img_array)[0]
         class_index = int(np.argmax(prediction))
         confidence = float(np.max(prediction))
@@ -95,7 +90,7 @@ def predict():
         print("❌ Prediction error:\n", traceback.format_exc())
         return jsonify({"error": "Prediction failed"}), 500
 
-# === Serve React frontend ===
+# === React frontend ===
 @app.route("/", defaults={"path": ""})
 @app.route("/<path:path>")
 def serve_react_app(path):
@@ -105,6 +100,6 @@ def serve_react_app(path):
     else:
         return send_from_directory(app.static_folder, "index.html")
 
-# === Run the app ===
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)

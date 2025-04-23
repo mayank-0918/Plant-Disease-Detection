@@ -7,7 +7,8 @@ services:
       cd client
       npm install
       npm run build
-    startCommand: python app.py
+   startCommand: gunicorn app:app
+
     envVars:
       - key: PORT
         value: 5000  # Updated the port to match your Flask app (if necessary)

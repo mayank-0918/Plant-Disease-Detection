@@ -1,8 +1,8 @@
 import os
 os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
 
-import numpy as np
 import tensorflow as tf
+import numpy as np
 from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
 from tensorflow.keras.models import load_model

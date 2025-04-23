@@ -1,10 +1,11 @@
+import os
+os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
 from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
 from tensorflow.keras.models import load_model
 from PIL import Image
 import numpy as np
 import json
-import os
 import traceback
 
 # === Initialize Flask app ===

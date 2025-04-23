@@ -25,10 +25,14 @@ const Home = () => {
             </p>
             <button
               onClick={handleButtonClick}
-              className="px-10 py-3 rounded-full border mt-10 flex items-center gap-5"
+              className="px-10 py-3 rounded-full border border-black mt-10 flex items-center gap-5 
+                        hover:bg-black hover:text-white transition-all duration-300 ease-in-out 
+                        transform hover:scale-105 group"
             >
-              Start scanning today. <FaArrowUp className="rotate-45" />
+              Start scanning today.
+              <FaArrowUp className="rotate-45 transition-transform duration-300 ease-in-out group-hover:translate-x-1 group-hover:-translate-y-1" />
             </button>
+
           </div>
         </div>
         <div className="h-full md:w-1/2">
